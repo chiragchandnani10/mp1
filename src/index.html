@@ -1,13 +1,114 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>MP1</title>
-    </head>
-    <body>
-        <h1>Hello World! Welcome to MP1!</h1>
-        <img src="assets/image.jpg">
-    </body>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <div class="navbar">
+    <h2>Chirag Chandnani</h2>
+    <div class="nav-links">
+      <a href="#home">Home</a>
+      <a href="#Experience">Experience</a>
+      <a href="#Projects">Projects</a>
+      <a class="last-link" href="#contact">Contact</a>
+    </div>
+  </div>
+
+  <!-- Sections -->
+   
+  <section class="home">
+    
+    <div class="SolidDiv">
+        <h3 class="Fadingeffectfast">Hello, I am Chirag Chandnani</h3>
+    <p class="Fadingeffectslow">Graduate Student at UIUC and an AI and Software Developer!</p>
+    </div>
+  </section>
+  
+
+  <section id="Experience">Experience Section</section>
+
+ <section id="Projects">
+
+  <!-- CSS-only carousel start -->
+  <div class="carousel" aria-label="Projects carousel">
+    <!-- Radio inputs to control slides -->
+    <p class="PROJECTS_P">Projects</p>
+    <input type="radio" name="carousel" id="c1" checked>
+    <input type="radio" name="carousel" id="c2">
+    <input type="radio" name="carousel" id="c3">
+
+    <!-- Slides -->
+    <div class="slides">
+      <div class="slide" id="s1">
+        <div class="card">
+          <h3>QueryVista</h3>
+          <p>Short description of QueryVista. Tech stack, outcome, link.</p>
+        </div>
+      </div>
+      <div class="slide" id="s2">
+        <div class="card">
+          <h3>Project Two</h3>
+          <p>Short description of project two. Tech stack, outcome, link.</p>
+        </div>
+      </div>
+      <div class="slide" id="s3">
+        <div class="card">
+          <h3>Project Three</h3>
+          <p>Short description of project three. Tech stack, outcome, link.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Prev/Next controls -->
+    <div class="controls" aria-hidden="false">
+      <label for="c3" class="control prev control-1" aria-label="Previous slide">‹</label>
+      <label for="c2" class="control next control-1" aria-label="Next slide">›</label>
+
+      <label for="c1" class="control prev control-2" aria-label="Previous slide">‹</label>
+      <label for="c3" class="control next control-2" aria-label="Next slide">›</label>
+
+      <label for="c2" class="control prev control-3" aria-label="Previous slide">‹</label>
+      <label for="c1" class="control next control-3" aria-label="Next slide">›</label>
+    </div>
+
+    <!-- Navigation dots -->
+    <div class="dots" role="tablist">
+      <label for="c1" class="dot" aria-label="Show slide 1"></label>
+      <label for="c2" class="dot" aria-label="Show slide 2"></label>
+      <label for="c3" class="dot" aria-label="Show slide 3"></label>
+    </div>
+  </div>
+  <!-- CSS-only carousel end -->
+</section>
+
+
+<div class="three-columns">
+    <div class="first_col">
+    <p class="multicolumn_header">Soft Skills</p>
+</div>
+<div class="inside_columns">
+  <div class="col">
+
+    <p class="multicolumn_text">Communication</p>
+    <p class="multicolumn_text_info">Lorem Ipsum Dolor Sit Amet Pet laurent exsum</p>
+ </div>
+  <div class="col">
+    <p class="multicolumn_text">Leadership</p>
+    <p class="multicolumn_text_info">Lorem Ipsum Dolor Sit Amet Pet laurent exsum</p>
+</div>
+  <div class="col">
+    <p class="multicolumn_text">Problem Solving</p>
+    <p class="multicolumn_text_info">Lorem Ipsum Dolor Sit Amet Pet laurent exsum</p>
+</div>
+</div>
+</div>
+
+  <section id="contact">Contact Section</section>
+
+  <script src="js/main.js"></script>
+</body>
 </html>

@@ -1,0 +1,349 @@
+body {
+  margin: 0;
+  font-family: Montserrat, sans-serif;
+  scroll-behavior: smooth;
+  padding-top: 100px; /* prevent overlap */
+}
+
+
+    .home {
+      height: 100vh; /* full screen */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      color: white;
+      text-align: center;
+      font-size: 2rem;
+      opacity: 0.8;
+      background: url("assets/background_image.jpg") no-repeat center center fixed;
+      background-size: cover;
+    }
+    .solidDiv{
+      display:flex;
+        flex-direction: column;
+        position: absolute;
+        opacity: 1;
+    }
+    .Fadingeffectfast {
+      opacity: 0;
+  animation: fadeIn 2s ease forwards;
+  color : black;
+  font-size: 2em;
+  font-family: "Garamond", "Times New Roman", Times, serif;
+    }
+    .Fadingeffectslow {
+  animation-delay: 1s;
+    }
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: translateY(20px); /* slight upward motion */}
+      100% { opacity: 1;    transform: translateY(0);}
+    }
+    /* Extra sections for scrolling */
+    .section {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 2rem;
+    }
+
+    .section:nth-child(2) {
+      background: #f4f4f4;
+    }
+
+    .section:nth-child(3) {
+      background: #ddd;
+    }
+
+
+
+/* Navbar */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 30px;
+  background: rgba(51, 51, 51, 0.9);
+  color: white;
+  z-index: 1000;
+  transition: height 0.3s ease; /* Transition takes place when there is a change in the properties of the element 
+  eg. :hover, :active, :focus or :checked or in javascript when you change the width/height or any property */
+}
+
+.navbar h2 {
+  margin: 0;
+}
+
+.nav-links {
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links a {
+  color: white;
+  font-size: 20px;
+  text-decoration: none;
+  padding: 8px 12px;
+  transition: background 0.3s;
+  transition: font-size 0.3s ease;
+  border-radius: 4px;
+}
+
+.nav-links .last-link {
+  margin-right: 50px;
+}
+
+.nav-links a:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Active link styling */
+.nav-links a.active {
+  background: white;
+  color: #333;
+  font-weight: bold;
+}
+
+/* Sections */
+section {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  color: white;
+}
+
+#home { background: #2a9d8f; }
+#Experience { background: #e76f51; }
+#Projects { background: #264653; }
+#contact { background: #f4a261; }
+
+/* Responsive */
+@media (max-width: 768px) {
+  .nav-links {
+    gap: 10px;
+  }
+}
+
+@media (max-width: 500px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    height: 250px;
+    padding: 10px 20px;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .nav-links a {
+    padding: 10px;
+    width: 100%;
+  }
+
+  .PROJECTS_P {
+  display: block; 
+  color: white; 
+  margin-bottom: 1rem; 
+  font: 700 1.5rem 'Montserrat', sans-serif; 
+  margin-left: 30%; 
+  margin-right: 20%;
+}
+
+
+}
+
+
+/*CAROUSEL*/
+.PROJECTS_P {
+  display: block; 
+  white; 
+  margin-bottom: 1rem; 
+  font: 700 3.5rem 'Montserrat', sans-serif; 
+  margin-left: 30%; 
+  margin-right: 20%;
+}
+
+
+/* Carousel container */
+#Projects .carousel {
+  width: min(1100px, 92%);
+  margin: 0 auto;
+  position: relative;
+}
+
+#Projects .carousel input[type="radio"] {
+  display: none;
+}
+
+/* Slides */
+#Projects .slides {
+  display: grid;
+  grid-template-columns: 1fr;
+  overflow: hidden;
+  position: relative;
+  min-height: 220px;
+}
+
+#Projects .slide {
+  padding: 20px;
+  box-sizing: border-box;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 360ms ease, transform 360ms ease;
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Card inside slide */
+#Projects .card {
+  background: rgba(255, 255, 255, 0.06);
+  color: #fff;
+  padding: 18px;
+  border-radius: 12px;
+  max-width: 900px;
+  width: 100%;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+}
+
+/* Show the checked slide */
+#c1:checked ~ .slides #s1,
+#c2:checked ~ .slides #s2,
+#c3:checked ~ .slides #s3 {
+  opacity: 1;
+  transform: translateY(0);
+  position: relative;
+}
+
+/* Dots */
+#Projects .dots {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  margin-top: 14px;
+}
+
+#Projects .dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.35);
+  display: inline-block;
+  cursor: pointer;
+  transition: transform 180ms ease, background 180ms ease;
+}
+
+#c1:checked ~ .dots label[for="c1"],
+#c2:checked ~ .dots label[for="c2"],
+#c3:checked ~ .dots label[for="c3"] {
+  background: #fff;
+  transform: scale(1.12);
+}
+
+/* Prev/Next controls */
+#Projects .controls {
+  position: relative;
+  height: 0;
+}
+
+#Projects .control {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.35);
+  color: #fff;
+  width: 38px;
+  height: 38px;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+#Projects .control:hover {
+  transform: translateY(-50%) scale(1.06);
+}
+
+#Projects .control.prev {
+  left: 6px;
+}
+
+#Projects .control.next {
+  right: 6px;
+}
+
+/* Show controls for the active slide */
+#c1:checked ~ .controls .control-1,
+#c2:checked ~ .controls .control-2,
+#c3:checked ~ .controls .control-3 {
+  display: flex;
+}
+
+
+
+/* Container with 3 columns */
+
+.three-columns {
+  display: flex
+  flex-direction: column;
+}
+
+.inside_columns{
+    display: flex;
+  justify-content: center;   /* distribute evenly */
+  align-items: stretch;      /* make all same height */
+  gap: 1rem;
+  padding: 2rem;
+}
+/* Individual columns */
+.col {
+  flex: 1;                   /* equal width */
+  padding: 3.3rem;
+  text-align: center;
+
+}
+
+.multicolumn_header{
+   text-align: center;
+    font-size: 2.5rem;
+    color: black;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    font-family: 'Courier New', Courier, monospace;
+}
+.multicolumn_text {
+  font-size: 2rem;
+  color: black;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  font-family: 'Courier New', Courier, monospace;
+}
+/* Responsive breakpoint */
+@media (max-width: 768px) {
+  .three-columns {
+    flex-direction: column;   /* stack vertically */
+    align-items: center;      /* center horizontally */
+  }
+  .inside_columns{
+    flex-direction: column;
+    padding: 1rem;
+  }
+
+  .col {
+    width: 90%;              /* make narrower when stacked */
+    max-width: 400px;
+  }
+}
