@@ -2,7 +2,7 @@ const sections = document.querySelectorAll("section");
 const navLinks = document.querySelectorAll(".nav-links a");
 const navbar = document.getElementsByClassName("navbar");
 
-console.log(navLinks);
+// console.log(navLinks);
 
 
 window.addEventListener("scroll", () => {
@@ -42,9 +42,67 @@ else{
 
 }
   navLinks.forEach(link => {
-    link.classList.remove("active");
+    link.classList.remove("active_nav");
     if (link.getAttribute("href") === "#" + current) {
-      link.classList.add("active");
+      link.classList.add("active_nav");
     }
   });
 });
+
+
+console.log(document.querySelectorAll(".card"));
+document.querySelectorAll(".card").forEach(card => {
+  card.addEventListener("click", () => {
+    const modalId = card.dataset.modal; // ✅ safer than getAttribute
+    console.log(modalId); // should print modal1, modal2, or modal3
+    const modal = document.getElementById(modalId);
+    if (modal) {
+      modal.classList.add("active");
+    }
+  });
+});
+
+// Close modal
+document.querySelectorAll(".modal .close").forEach(closeBtn => {
+  closeBtn.addEventListener("click", () => {
+    closeBtn.closest(".modal").classList.remove("active");
+  });
+});
+
+
+// Close when clicking outside
+window.addEventListener("click", (e) => {
+  if (e.target.classList.contains("modal")) {
+    e.target.classList.remove("active");
+  }
+});
+
+
+//Close modal on ESC key press
+window.addEventListener("keydown", (e) => {
+    if(e.key==="Escape"){
+        modals.forEach(modal => {
+            modal.classList.remove("active");
+          });
+    }
+});
+
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  const aboutSection = document.querySelector(".about");
+
+  // Intersection Observer for smooth entry when section appears
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        aboutSection.classList.add("show");
+        observer.unobserve(aboutSection); // only animate once
+      }
+    });
+  }, { threshold: 0.2 });
+
+  observer.observe(aboutSection);
+});
+
+
